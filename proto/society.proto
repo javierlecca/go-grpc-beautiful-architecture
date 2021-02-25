@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package protorender;
+
+option go_package = "protorender;protorender";
+
+message Society {
+    fixed32 id  = 1;
+    string name  = 2;
+    string nameComplement  = 3;
+    string logo  = 4;
+    string abstract  = 5;
+    string abstractPhoto  = 6;
+    string country  = 7;
+    string department  = 8;
+    int32 familiesNumber = 9;
+    int32 associatesNumber = 10;
+    int32 salesNumber = 11;
+    float longitude = 12;
+    float latitude = 13;
+    string web  = 14;
+    string video  = 15;
+}
+
+message RequestSocieties {
+    fixed32 id = 1;
+}
+
+message ResponseSocieties {
+    repeated Society societies = 1;
+}
+
+
+service SocietyService {
+    rpc SimpleRPC(RequestSocieties) returns (ResponseSocieties) {}
+    rpc ServerSideStreamingRPC(RequestSocieties) returns (stream Society) {}
+    rpc ClientSideStreamingRPC(stream RequestSocieties) returns (ResponseSocieties) {}
+    rpc BidirectionalStreamingRPC(stream RequestSocieties) returns (stream Society) {}
+}
+  

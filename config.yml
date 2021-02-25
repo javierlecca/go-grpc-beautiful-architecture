@@ -1,0 +1,17 @@
+appname: sample
+port: 8000
+
+db:
+    use: mysql
+    mysql:
+        -   enabled: true
+            host: xx.xx.xx.xxx
+            port: xxxx
+            username: xxxxxx
+            password: xxxxxxxxxx
+            database: xxxxxxxxxx
+            nameconn: connMysql
+
+contacts:
+    name: 'Javier Lecca'
+    email: leccajavier@gmail.com
